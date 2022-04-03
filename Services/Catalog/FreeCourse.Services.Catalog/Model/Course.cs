@@ -8,7 +8,7 @@ namespace FreeCourse.Services.Catalog.Model
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
         [BsonRepresentation(BsonType.Decimal128)]
         public decimal Price { get; set; }
