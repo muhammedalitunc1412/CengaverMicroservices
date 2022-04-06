@@ -1,5 +1,6 @@
 using FreeCourse.Services.Basket.Services;
 using FreeCourse.Services.Basket.Settings;
+using FreeCourse.Shared.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -29,6 +30,9 @@ namespace FreeCourse.Services.Basket
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<RedisSettings>(Configuration.GetSection("RedisSettings"));
+            services.AddHttpContextAccessor();
+            services.AddScoped<IBasketService, BasketService>();
+            services.AddScoped<ISharedIdentityService, SharedIdentityService>();
             services.AddSingleton<RedisService>(sp =>
             {
                 var redisSettings = sp.GetRequiredService<IOptions<RedisSettings>>().Value;
