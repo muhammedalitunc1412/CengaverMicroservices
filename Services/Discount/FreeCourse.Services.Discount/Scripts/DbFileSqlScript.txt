@@ -1,7 +1,9 @@
-﻿﻿create table Discount(
-Id serial primary key,
-UserId varchar(200)  not null,
-Rate smallint not null,
-Code  varchar(50)  not null,
-CreatedDate timestamp not null default CURRENT_TIMESTAMP
-)
+﻿CREATE TABLE public.dicount (
+	id serial4 NOT NULL,
+	userid varchar(100) NOT NULL,
+	rate int2 NOT NULL,
+	code varchar(50) NOT NULL,
+	createddate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	CONSTRAINT dicount_pkey PRIMARY KEY (id),
+	CONSTRAINT dicount_userid_key UNIQUE (userid)
+);
